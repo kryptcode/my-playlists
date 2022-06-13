@@ -36,7 +36,7 @@ export default function Home({ data }) {
             return (
               <div className='text-white shadow-md shadow-gray-800 rounded-md hover:scale-105 transition-all duration-200 ease-in-out' key={playlist.uri}>
                 <a href={`https://open.spotify.com/playlist/${playlistId}`} target="_blank" rel='noreferrer'>
-                <div className='bg-green-600/20 h-60 w-full rounded-t-md' />
+                <div className='bg-pink-600/20 h-60 w-full rounded-t-md' />
                 <p className='px-3 py-1 font-medium'>
                   {playlist.name}
                 </p>
