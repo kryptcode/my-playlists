@@ -57,7 +57,7 @@ export async function getStaticProps() {
   const res = await axios.get(
     'https://spotify23.p.rapidapi.com/user_profile/',
   {
-    params: {id: '6ifbujr7hgpu5mqie68473zgx', playlistLimit: '10', artistLimit: '10'},
+    params: {id: '6ifbujr7hgpu5mqie68473zgx', playlistLimit: '20', artistLimit: '20'},
     headers: {
       'X-RapidAPI-Key': process.env.NEXT_PUBLIC_RAPID_API_KEY,
       'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
