@@ -26,8 +26,8 @@ export default function Home({ data }) {
       </div>
 
       <div className='w-[90%] mx-auto '>
-        <h3>
-          Public Playlist
+        <h3 className='text-xl font-semibold'>
+          My Playlists
         </h3>
         <div className='grid grid-cols-2 md:grid-cols-4 gap-8 py-8'>
           {
