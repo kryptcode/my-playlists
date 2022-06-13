@@ -1,12 +1,8 @@
 import Head from 'next/head'
-// import { baseUrl, fetchApi } from '../utils/fetchApi';
 import axios from "axios";
-import { useState } from 'react';
-
 import Header from '../components/Header'
 
 export default function Home({ data }) {
-  // console.log(data);
   return (
     <div className=''>
       <Head>
@@ -33,13 +29,21 @@ export default function Home({ data }) {
         <h3>
           Public Playlist
         </h3>
-        <div>
+        <div className='grid grid-cols-2 md:grid-cols-4 gap-8 py-8'>
           {
-            data.public_playlists.map((index, playlist) => (
-              <div>
-                
+            data.public_playlists.map((playlist) => {
+              const playlistId = playlist.uri.slice(17, -1)
+            return (
+              <div className='text-white shadow-md shadow-gray-800 rounded-md hover:scale-105 transition-all duration-200 ease-in-out' key={playlist.uri}>
+                <a href={`https://open.spotify.com/playlist/${playlistId}`} target="_blank" rel='noreferrer'>
+                <div className='bg-green-600/20 h-60 w-full rounded-t-md' />
+                <p className='px-3 py-1 font-medium'>
+                  {playlist.name}
+                </p>
+                </a>
               </div>
-            ))
+            )
+          })
           }
         </div>
       </div>
@@ -55,7 +59,7 @@ export async function getStaticProps() {
   {
     params: {id: '6ifbujr7hgpu5mqie68473zgx', playlistLimit: '10', artistLimit: '10'},
     headers: {
-      'X-RapidAPI-Key': 'c7d1a728c2msh9230e16f814ef0bp176af4jsna038481202cc',
+      'X-RapidAPI-Key': process.env.NEXT_PUBLIC_RAPID_API_KEY,
       'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
     }
   }
